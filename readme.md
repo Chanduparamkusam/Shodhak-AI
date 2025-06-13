@@ -122,6 +122,15 @@ Double-click `index.html` to open it in your browser.
 
 ## Screenshots
 
+#returnabuse
+screenshot1:  [https://github.com/Chanduparamkusam/Shodhak-AI/blob/main/screenshots/Screenshot%202025-06-13%20200416%20return%20abuse.png]
+
+  screenshot2  [https://github.com/Chanduparamkusam/Shodhak-AI/blob/main/screenshots/Screenshot%202025-06-13%20200757%20%20return%20fraud.png]
+
+ #reviewfraud
+ screenshot1:[https://github.com/Chanduparamkusam/Shodhak-AI/blob/main/screenshots/Screenshot%202025-06-13%20200441%20review%20fraud.png]
+
+ screenshot2 :[https://github.com/Chanduparamkusam/Shodhak-AI/blob/main/screenshots/screenshotreview.png]
 
 ## Contact
 
