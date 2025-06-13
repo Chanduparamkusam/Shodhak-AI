@@ -122,7 +122,7 @@ Double-click `index.html` to open it in your browser.
 
 ## Screenshots
 returnabuse screenshot1:  [https://github.com/Chanduparamkusam/Shodhak-AI/blob/main/screenshots/Screenshot%202025-06-13%20200416%20return%20abuse.png]
-     returnabuse screenshot2  [screenshots/Screenshot 2025-06-13 200757  return fraud.png]
+     returnabuse screenshot2  [https://github.com/Chanduparamkusam/Shodhak-AI/blob/main/screenshots/Screenshot%202025-06-13%20200757%20%20return%20fraud.png]
 
 ## Contact
 
