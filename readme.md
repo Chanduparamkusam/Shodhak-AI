@@ -121,7 +121,8 @@ Double-click `index.html` to open it in your browser.
 ---
 
 ## Screenshots
-     -returnabuse screenshot1    [/screenshots/Screenshot 2025-06-13 200416 return abuse.png]
+     returnabuse screenshot1  [screenshots/Screenshot 2025-06-13 200416 return abuse.png]
+     returnabuse screenshot2  [screenshots/Screenshot 2025-06-13 200757  return fraud.png]
 
 ## Contact
 
