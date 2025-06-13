@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shodhak AI – Trust & Safety Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="splashScreen" class="splash">
+    <div class="color-spray spray-red"></div>
+    <div class="color-spray spray-green"></div>
+    <div class="color-spray spray-yellow"></div>
+    <div class="color-spray spray-purple"></div>
+    <div class="blue-fill"></div>
+    <div class="splash-content">
+      <h1 class="splash-title">Shodhak AI</h1>
+      <p class="splash-subtitle">Trust & Safety AI for E-Commerce</p>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="logo">
+      <h2>Shodhak AI</h2>
+      <p>Trust & Safety</p>
+    </div>
+    <nav>
+      <a class="active" href="#" onclick="showTab('returnTab', event)">Dashboard</a>
+      <a href="#" onclick="showTab('analyticsTab', event)">Analytics</a>
+      <a href="#" onclick="showTab('settingsTab', event)">Settings</a>
+      <a href="#" onclick="showTab('logoutTab', event)">Logout</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header>
+      <h1>Shodhak AI</h1>
+      <span class="tagline">AI‑powered Trust & Safety for E‑Commerce</span>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('returnTab', event)">Return Abuse</button>
+      <button class="tab-btn" onclick="showTab('reviewTab', event)">Fake Reviews</button>
+      <button class="tab-btn" onclick="showTab('analyticsTab', event)">Analytics</button>
+    </div>
+
+    <!-- Return Abuse Tab -->
+    <section id="returnTab" class="tab-content active">
+      <h2>Return Abuse Detection</h2>
+      <div class="buttons-horiz">
+        <button onclick="fillReturnSample()">Load Sample Return</button>
+      </div>
+      <div class="form-group">
+        <input id="userId" placeholder="User ID" />
+        <input id="orderId" placeholder="Order ID" />
+        <input id="productId" placeholder="Product ID" />
+        <input id="reason" placeholder="Return Reason" />
+        <input id="returnType" placeholder="Return Type" />
+        <input id="category" placeholder="Category" />
+        <input id="orderDate" type="date" />
+        <input id="returnDate" type="date" />
+        <button id="detectReturnBtn">Detect Abuse</button>
+      </div>
+      <div class="result-box">
+        <p><strong>Suspicious:</strong> <span id="suspiciousResult">–</span></p>
+        <p><strong>Reason:</strong> <span id="reasonResult">–</span></p>
+        <p><strong>Score:</strong> <span id="scoreResult">–</span></p>
+      </div>
+    </section>
+
+    <!-- Fake Review Tab -->
+    <section id="reviewTab" class="tab-content">
+      <h2>Fake Review Detection</h2>
+      <div class="buttons-horiz">
+        <button onclick="fillReviewSample()">Load Sample Review</button>
+      </div>
+      <div class="form-group">
+        <input id="fakeUserId" placeholder="User ID" />
+        <input id="fakeProductId" placeholder="Product ID" />
+        <textarea id="reviewText" placeholder="Review text"></textarea>
+        <input id="rating" type="number" placeholder="Rating (1‑5)" min="1" max="5" />
+        <button id="detectFakeBtn">Detect Fake Review</button>
+      </div>
+      <div class="result-box">
+        <p><strong>Fake:</strong> <span id="fakeResult">–</span></p>
+        <p><strong>Message:</strong> <span id="fakeMessage">–</span></p>
+        <p><strong>Score:</strong> <span id="fakeScore">–</span></p>
+      </div>
+    </section>
+
+    <!-- Analytics Tab -->
+    <section id="analyticsTab" class="tab-content">
+      <h2>Analytics Overview</h2>
+      <div class="coming-soon-box">
+        <p>🚧 Analytics dashboard coming soon...</p>
+        <p>Stay tuned for real-time abuse & review insights powered by Cooler backend.</p>
+      </div>
+    </section>
+
+    <!-- Settings Tab -->
+    <section id="settingsTab" class="tab-content">
+      <h2>Settings</h2>
+      <div class="coming-soon-box">
+        <p>⚙️ Settings panel coming soon...</p>
+        <p>Manage user preferences and features once Cooler is ready.</p>
+      </div>
+    </section>
+
+    <!-- Logout Tab -->
+    <section id="logoutTab" class="tab-content">
+      <h2>Logout</h2>
+      <div class="coming-soon-box">
+        <p>🚪 Logout functionality will be active after login system is integrated.</p>
+        <p>Redirecting to Cooler will be added soon.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>🔎 <strong>Shodhak AI</strong> is an AI-powered Trust & Safety engine for e-commerce platforms. Built with Spring Boot + Python Flask + HTML/CSS.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
