@@ -138,7 +138,7 @@ For questions, issues, or feedback, please contact:
 
 - Paramkusam Chandu Gopala Krishna
 - Email: chanduparamkusam@gmail.com  
-- GitHub: [your-username](https://github.com/Chanduparamkusam)
+- GitHub: (https://github.com/Chanduparamkusam)
 
 ---
 
