@@ -244,3 +244,45 @@ button:hover {
   font-weight: 500;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: static;
+    text-align: center;
+  }
+
+  .main {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  nav a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .result-box p {
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  h1, h2 {
+    font-size: 20px;
+  }
+}
