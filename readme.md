@@ -143,3 +143,13 @@ For questions, issues, or feedback, please contact:
 ---
 
 *Happy coding! 🚀*
+
+---
+
+## ⚠️ Legal Notice
+
+This project "Shodhak AI" is built by **Paramkusam Chandu Gopala Krishna** and is publicly available for educational and hiring purposes only.  
+Unauthorized copying, cloning, or commercial use of this codebase without proper credit or permission is strictly prohibited.
+
+MIT License applies.
+
