@@ -1,14 +1,14 @@
-# Use official OpenJDK image
+# Use an official OpenJDK image
 FROM openjdk:17-jdk-slim
 
 # Set working directory
 WORKDIR /app
 
-# Copy Maven wrapper and project files
+# Copy project files
 COPY . .
 
-# Build the project
+# Build the app
 RUN ./mvnw clean package -DskipTests
 
-# Run the JAR file
-CMD ["java", "-jar", "target/*.jar"]
+# Run the application
+CMD ["java", "-jar", "target/ecomguard-pro-0.0.1-SNAPSHOT.jar"]
