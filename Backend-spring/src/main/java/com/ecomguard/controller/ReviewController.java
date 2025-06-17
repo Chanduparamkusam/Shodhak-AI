@@ -44,7 +44,6 @@ public class ReviewController {
             ReviewResponse result = flaskResponse.getBody();
             System.out.println("Flask response received: " + objectMapper.writeValueAsString(result));
 
-            // Save to DB
             Review review = new Review();
             review.setUserId(request.getUserId());
             review.setProductId(request.getProductId());
@@ -52,7 +51,9 @@ public class ReviewController {
             review.setRating(request.getRating());
             review.setDetectedAsFake(result.isFake());
             review.setScore(result.getScore());
-            review.setTimestamp(LocalDateTime.now());
+            review.setSuspicious(result.isFake()); // optional
+            review.setTimestamp(LocalDateTime.now()); // ✅ Corrected
+
             repository.save(review);
 
             return ResponseEntity.ok(result);

@@ -53,6 +53,7 @@ public class ReviewServiceImpl implements ReviewService {
             review.setSuspicious(result.isFake());     // ✅ optional if you store it separately
             review.setTimestamp(LocalDateTime.now());
 
+
             reviewRepository.save(review);
 
             return result;

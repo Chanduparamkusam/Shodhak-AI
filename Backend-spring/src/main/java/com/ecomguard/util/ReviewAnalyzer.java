@@ -2,7 +2,6 @@ package com.ecomguard.util;
 
 import com.ecomguard.model.Review;
 
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
@@ -32,3 +31,4 @@ public class ReviewAnalyzer {
         return tooQuick || keywordAbuse || tooShort;
     }
 }
+
