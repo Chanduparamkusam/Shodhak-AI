@@ -20,7 +20,7 @@ public class ReviewServiceImpl implements ReviewService {
     private ReviewRepository reviewRepository;
 
     private final RestTemplate restTemplate = new RestTemplate();
-    private static final String FLASK_REVIEW_URL = "http://localhost:5000/detect-fake-review";
+    private static final String FLASK_URL = "https://shodhak-ai.onrender.com/detect-fake-review";
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public ReviewResponse analyzeReview(ReviewRequest request) {
@@ -30,7 +30,7 @@ public class ReviewServiceImpl implements ReviewService {
             HttpEntity<ReviewRequest> entity = new HttpEntity<>(request, headers);
 
             ResponseEntity<ReviewResponse> response = restTemplate.exchange(
-                    FLASK_REVIEW_URL,
+                    FLASK_URL,
                     HttpMethod.POST,
                     entity,
                     ReviewResponse.class
