@@ -22,7 +22,8 @@ public class Review {
 
     @Column(nullable = false)
     private boolean suspicious;
-    @Column(name = "timestamp", columnDefinition = "DATETIME")
+    @Column(name = "timestamp", nullable = false)
+
     private LocalDateTime timestamp;
 
     // Getters and Setters
