@@ -1,29 +1,27 @@
 window.addEventListener("load", () => {
   const splash = document.getElementById("splashScreen");
 
-  // Wait 5 seconds before fading out
   setTimeout(() => {
     splash.style.opacity = 0;
     splash.style.transition = "opacity 2s ease";
-
     setTimeout(() => {
       splash.style.display = "none";
     }, 1000);
   }, 5000);
 });
 
-// Tab switching
 function showTab(tabId, event) {
   document.querySelectorAll(".tab-content").forEach(div => div.classList.remove("active"));
   document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
   document.getElementById(tabId).classList.add("active");
   event.target.classList.add("active");
 
-  // Optionally load analytics data when Analytics tab is shown
   if (tabId === "analyticsTab") {
     loadAnalytics();
   }
 }
+
+const BASE_URL = "https://shodhakai-springboot.onrender.com";
 
 // === Return Abuse Detection ===
 document.getElementById("detectReturnBtn").addEventListener("click", () => {
@@ -47,16 +45,17 @@ document.getElementById("detectReturnBtn").addEventListener("click", () => {
     ]
   }];
 
-  fetch("http://localhost:8089/api/return-abuse/detect", {
+  fetch(`${BASE_URL}/api/return-abuse/detect`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(requestBody)
   })
     .then(res => res.json())
     .then(result => {
-      document.getElementById("suspiciousResult").textContent = result.suspicious;
-      document.getElementById("reasonResult").textContent = result.reason;
-      document.getElementById("scoreResult").textContent = result.suspiciousScore;
+      const data = Array.isArray(result) ? result[0] : result;
+      document.getElementById("suspiciousResult").textContent = data.suspicious;
+      document.getElementById("reasonResult").textContent = data.reason || data.message;
+      document.getElementById("scoreResult").textContent = data.suspiciousScore;
     })
     .catch(err => alert("Return Abuse Error:\n" + err));
 });
@@ -80,7 +79,7 @@ document.getElementById("detectFakeBtn").addEventListener("click", async () => {
   };
 
   try {
-    const response = await fetch("http://localhost:8089/api/reviews/analyze", {
+    const response = await fetch(`${BASE_URL}/api/reviews/analyze`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody)
@@ -101,31 +100,89 @@ document.getElementById("detectFakeBtn").addEventListener("click", async () => {
   }
 });
 
-// === Fill Sample Data ===
-function fillReturnSample() {
-  document.getElementById("userId").value = "u123";
-  document.getElementById("orderId").value = "o456";
-  document.getElementById("productId").value = "p789";
-  document.getElementById("reason").value = "Item did not match description";
-  document.getElementById("returnType").value = "Refund";
-  document.getElementById("category").value = "Electronics";
-  document.getElementById("orderDate").value = "2024-05-01";
-  document.getElementById("returnDate").value = "2024-05-07";
+// === Fill Return Sample Data ===
+function fillReturnSample(index = 1) {
+  const samples = [
+    {
+      userId: "u123",
+      orderId: "o456",
+      productId: "p789",
+      reason: "Item did not match description",
+      returnType: "Refund",
+      category: "Electronics",
+      orderDate: "2024-05-01",
+      returnDate: "2024-05-07"
+    },
+    {
+      userId: "u999",
+      orderId: "o999",
+      productId: "p999",
+      reason: "Used and returned near expiry",
+      returnType: "Refund",
+      category: "Fashion",
+      orderDate: "2024-06-01",
+      returnDate: "2024-06-10"
+    },
+    {
+      userId: "u777",
+      orderId: "o777",
+      productId: "p777",
+      reason: "Wrong item delivered",
+      returnType: "Replacement",
+      category: "Home",
+      orderDate: "2024-06-05",
+      returnDate: "2024-06-08"
+    }
+  ];
+
+  const sample = samples[index - 1];
+  if (!sample) return alert("Invalid sample index");
+
+  document.getElementById("userId").value = sample.userId;
+  document.getElementById("orderId").value = sample.orderId;
+  document.getElementById("productId").value = sample.productId;
+  document.getElementById("reason").value = sample.reason;
+  document.getElementById("returnType").value = sample.returnType;
+  document.getElementById("category").value = sample.category;
+  document.getElementById("orderDate").value = sample.orderDate;
+  document.getElementById("returnDate").value = sample.returnDate;
 }
 
-function fillReviewSample() {
-  document.getElementById("fakeUserId").value = "101";
-  document.getElementById("fakeProductId").value = "202";
-  document.getElementById("reviewText").value = "Best product ever! Super amazing!!!";
-  document.getElementById("rating").value = "5";
+// === Fill Review Sample Data ===
+function fillReviewSample(index = 1) {
+  const samples = [
+    {
+      userId: "101",
+      productId: "202",
+      reviewText: "Best product ever! Super amazing!!!",
+      rating: 5
+    },
+    {
+      userId: "555",
+      productId: "888",
+      reviewText: "Not good. Broke after two days. Total waste.",
+      rating: 1
+    },
+    {
+      userId: "333",
+      productId: "444",
+      reviewText: "It's okay, works fine, nothing special.",
+      rating: 3
+    }
+  ];
+
+  const sample = samples[index - 1];
+  if (!sample) return alert("Invalid review sample index");
+
+  document.getElementById("fakeUserId").value = sample.userId;
+  document.getElementById("fakeProductId").value = sample.productId;
+  document.getElementById("reviewText").value = sample.reviewText;
+  document.getElementById("rating").value = sample.rating;
 }
 
-// === Load Analytics (static or dynamic) ===
+// === Analytics (static) ===
 function loadAnalytics() {
-  // Static values for now
   document.getElementById("abuseCount").textContent = "124";
   document.getElementById("reviewCount").textContent = "78";
   document.getElementById("accuracyScore").textContent = "92.4%";
-
- 
 }
