@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class ReturnAbuseDetectionService {
 
     private final RestTemplate restTemplate = new RestTemplate();
-    private final String flaskUrl = "http://localhost:5000/detect-return-abuse";
+   private static final String FLASK_URL = "https://shodhak-ai.onrender.com/detect-return-abuse";
 
     public ReturnAbuseResponse detectAbuse(ReturnAbuseRequest request) {
         HttpHeaders headers = new HttpHeaders();
@@ -18,7 +18,7 @@ public class ReturnAbuseDetectionService {
         HttpEntity<ReturnAbuseRequest> entity = new HttpEntity<>(request, headers);
         
         ResponseEntity<ReturnAbuseResponse> response = restTemplate.exchange(
-            flaskUrl,
+            FLASK_URL,
             HttpMethod.POST,
             entity,
             ReturnAbuseResponse.class

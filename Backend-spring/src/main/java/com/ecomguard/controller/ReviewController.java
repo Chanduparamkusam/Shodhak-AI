@@ -21,7 +21,8 @@ public class ReviewController {
     private ReviewRepository repository;
 
     private final RestTemplate restTemplate = new RestTemplate();
-    private static final String FLASK_REVIEW_URL = "http://localhost:5000/detect-fake-review";
+    private static final String FLASK_REVIEW_URL = "https://shodhak-ai.onrender.com/detect-fake-review";
+
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @PostMapping("/analyze")
