@@ -2,25 +2,23 @@ package com.ecomguard.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfig {
-
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()
-                .anyRequest().authenticated()
-            )
-            .httpBasic(Customizer.withDefaults());
-
+            .csrf().disable()
+            .authorizeHttpRequests()
+            .requestMatchers(
+                "/api/reviews/**",           // allow review detection
+                "/api/return-abuse/**"       // allow return abuse detection
+            ).permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .httpBasic(); // for local testing only
         return http.build();
     }
 }
