@@ -10,6 +10,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,6 +22,9 @@ public class ReviewServiceImpl implements ReviewService {
 
     private final RestTemplate restTemplate = new RestTemplate();
     private static final String FLASK_URL = "https://shodhak-ai.onrender.com/detect-fake-review";
+
+
+
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public ReviewResponse analyzeReview(ReviewRequest request) {

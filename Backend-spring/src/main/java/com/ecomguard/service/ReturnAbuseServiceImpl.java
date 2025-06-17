@@ -22,7 +22,8 @@ public class ReturnAbuseServiceImpl implements ReturnAbuseService {
     private ReturnAbuseRepository repository;
 
     private final RestTemplate restTemplate = new RestTemplate();
-      private static final String FLASK_URL = "https://shodhak-ai.onrender.com/detect-fake-review";
+    private static final String FLASK_URL = "https://shodhak-ai.onrender.com/detect-return-abuse";
+
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
