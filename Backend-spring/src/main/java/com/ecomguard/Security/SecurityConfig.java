@@ -16,7 +16,7 @@ public class SecurityConfig {
                 "/api/reviews/**",           // allow review detection
                 "/api/return-abuse/**"       // allow return abuse detection
             ).permitAll()
-            .anyRequest().authenticated()
+            .anyRequest().permitAll()
             .and()
             .httpBasic(); // for local testing only
         return http.build();
