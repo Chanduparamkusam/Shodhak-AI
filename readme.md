@@ -4,7 +4,7 @@
 **Shodhak AI** is an AI-powered Trust & Safety system for e-commerce platforms.  
 It detects return abuse and fake reviews using intelligent scoring and machine learning.
 
-🚀 **Live Demo:** _Coming soon with Cooler e-commerce site integration_
+🚀 **Live Demo:** [https://shodhakai.netlify.app/]
 
 ## 📑 Table of Contents
 
